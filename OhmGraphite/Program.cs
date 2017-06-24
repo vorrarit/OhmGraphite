@@ -120,9 +120,9 @@ namespace OhmGraphite
 
 					// Graphite API wants <metric> <value> <timestamp>. We prefix the metric
 					// with `ohm` as to not overwrite potentially existing metrics
-					writer.WriteLine($"ohm.{name} {hardwareSensor.Value ?? 0.0} {time:d}");
+					writer.WriteLine($"ohm.{Environment.MachineName}.{name} {hardwareSensor.Value ?? 0.0} {time:d}");
 
-					Console.WriteLine($"ohm.{name} {hardwareSensor.Value ?? 0.0} {time:d}");
+					Console.WriteLine($"ohm.{Environment.MachineName}.{name} {hardwareSensor.Value ?? 0.0} {time:d}");
 				}
 			}
 
